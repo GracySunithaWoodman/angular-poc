@@ -1,0 +1,47 @@
+
+<div class="container">
+    <div style="margin-top:50px" class="mainbox">
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Occupation</th>
+                    <th>Corona Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users; let i = index">
+                    <td>{{ user.firstName | concatenate:user.lastName }}</td>
+                    <td>{{ user.gender }}</td>
+                    <td>{{ user.age }}</td>
+                    <td>{{ user.occupation }}</td>
+                    <td *ngIf="module != 'user'">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" value="Active" name="coronaStatus-{{i}}" [(ngModel)]="user.coronaStatus">
+                            Active
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" value="Recovered" name="coronaStatus-{{i}}" [(ngModel)]="user.coronaStatus">
+                            Recovered
+                        </div>
+
+                        <div class="custom-control custom-radio">
+                            <input type="radio" class="custom-control-input" value="Deceased" name="coronaStatus-{{i}}" [(ngModel)]="user.coronaStatus">
+                            Deceased
+                        </div>
+                    </td>
+                    <td *ngIf="module == 'user'">{{ user.coronaStatus }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="module != 'user'" style="margin-left:850px" class="form-group">
+            <div class="col-sm-12 controls">
+                <button (click)="updateUserDetails()" class="btn btn-success">Update Details</button>
+            </div>
+        </div>
+        <br><br>
+    </div>
+</div>

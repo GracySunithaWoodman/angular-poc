@@ -1,0 +1,45 @@
+<div class="container">
+    <div id="userSignin" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">USER LOGIN</div>
+            </div>
+
+            <div style="padding-top:30px" class="panel-body">
+
+                <form #userSignInForm="ngForm" id="loginform" class="form-horizontal" role="form" (ngSubmit)="userSignInClick(userSignInForm)">
+                    <div style="margin-bottom: 25px">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="login-username" type="text" class="form-control" [(ngModel)]="userModel.email"
+                                placeholder="email" name="email" #email="ngModel" required email>
+                        </div>
+                        <div>
+                            <app-show-error *ngIf="userSignInForm.submitted" [control]="email"></app-show-error>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 25px">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="login-pwd" type="password" class="form-control" [(ngModel)]="userModel.password" placeholder="password"
+                                name="password" #password="ngModel" required>
+                        </div>
+                        <div>
+                            <app-show-error *ngIf="userSignInForm.submitted" [control]="password"></app-show-error>
+                        </div>
+                    </div>
+
+
+                    <div style="margin-top:10px" class="form-group">
+                        <div class="col-sm-12 controls">
+                            <button id="btn-login" class="btn btn-success">Login</button>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

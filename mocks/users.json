@@ -1,0 +1,64 @@
+{
+  "adminUsers": [
+    {
+      "id": 1,
+      "age": 16,
+      "name": "Andy",
+      "email": "andy@t.com",
+      "password": "andy123"
+    },
+    {
+      "id": 2,
+      "age": 22,
+      "name": "Lisa",
+      "email": "lisa@t.com",
+      "password": "lisa123"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Annie",
+      "lastName": "Christie",
+      "gender": "Female",
+      "age": 30,
+      "occupation": "Doctor",
+      "email": "annie@t.com",
+      "password": "annie123",
+      "coronaStatus": "Active"
+    },
+    {
+      "id": 2,
+      "firstName": "Mary",
+      "lastName": "Magdaline",
+      "gender": "Female",
+      "age": 30,
+      "occupation": "Carpenter",
+      "email": "mary@t.com",
+      "password": "mary123",
+      "coronaStatus": "Active"
+    },
+    {
+      "firstName": "Ritam",
+      "lastName": "Deb",
+      "gender": "Male",
+      "age": "33",
+      "occupation": "Carpenter",
+      "email": "r@t.com",
+      "password": "r123",
+      "id": 4,
+      "coronaStatus": "Recovered"
+    },
+    {
+      "firstName": "Gracy",
+      "lastName": "Woodman",
+      "gender": "Female",
+      "age": "29",
+      "occupation": "Business",
+      "email": "g@t.com",
+      "password": "g123",
+      "id": 5,
+      "coronaStatus": "Active"
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+<ul class="col-md-9" style="margin-left: 140px;" *ngIf="shouldShowErrors()">
+    <li style="color: red" *ngFor="let error of listOfErrors()">{{error}}</li>
+</ul>

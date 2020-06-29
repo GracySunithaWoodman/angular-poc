@@ -1,0 +1,100 @@
+<div class="container">
+    <div id="signupbox" style="margin-top:50px"
+        class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+
+            <div class="panel-heading">
+                <div class="panel-title">Sign Up</div>
+                <div style="float:right; font-size: 85%; position: relative; top:-10px">
+                    <a routerLink="/user-signin-component" id="signinlink">Sign In</a>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <form #signupForm="ngForm" id="signupform" class="form-horizontal" role="form" novalidate  (ngSubmit)="signupClick(signupForm)">
+                 
+                    <div class="form-group" *ngIf="userModel.firstName && userModel.lastName">
+                        <label class="col-md-9 control-label">My fullname is : {{userModel.firstName | concatenate:userModel.lastName}}</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="firstname" class="col-md-3 control-label">First Name</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="firstname" #fName="ngModel" placeholder="First Name" [(ngModel)]="userModel.firstName" required>
+                        </div>
+                        <app-show-error *ngIf="signupForm.submitted" [control]="fName"></app-show-error>
+                    </div>
+                 
+                    <div class="form-group">
+                        <label for="lastname" class="col-md-3 control-label">Last Name</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="lastname" #lName="ngModel" placeholder="Last Name"
+                                [(ngModel)]="userModel.lastName" required>
+                        </div>
+                        <app-show-error *ngIf="signupForm.submitted" [control]="lName"></app-show-error>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender" class="col-md-3 control-label">Gender</label>
+                        <div class="col-md-9">
+                            <div class="custom-control custom-radio">
+                                <input id="male" type="radio" class="custom-control-input" value="Male" name="gender" [(ngModel)]="userModel.gender">
+                                Male
+                            </div>
+                            
+                            <div class="custom-control custom-radio">
+                                <input id="female" type="radio" class="custom-control-input" value="Female" name="gender" [(ngModel)]="userModel.gender">
+                                Female
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age" class="col-md-3 control-label">Age</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="age" placeholder="Age"
+                                [(ngModel)]="userModel.age" #lage="ngModel" appNumericValidator>
+                        </div>
+                        <app-show-error *ngIf="signupForm.submitted" [control]="lage"></app-show-error>
+                    </div>
+    
+                    <div class="form-group">
+                        <label  class="col-md-3 control-label">Occupation</label>
+                        <div class="col-md-9">
+                            <select class="form-control" [(ngModel)]="userModel.occupation"  name="occupation">
+                                <option *ngFor="let occup of occupationList"> {{occup}}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="col-md-3 control-label">Email</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" name="email" #email="ngModel" placeholder="Email Address" 
+                                [(ngModel)]="userModel.email" required email>
+                        </div>
+                        <app-show-error *ngIf="signupForm.submitted" [control]="email"></app-show-error>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password" class="col-md-3 control-label">Password</label>
+                        <div class="col-md-9">
+                            <input type="password" class="form-control" name="passwd" #pwd="ngModel" placeholder="Password"
+                                [(ngModel)]="userModel.password" required>
+                        </div>
+                        <app-show-error *ngIf="signupForm.submitted" [control]="pwd"></app-show-error>
+                    </div>
+    
+                    <div class="form-group">
+                        <!-- Button -->
+                        <div class="col-md-offset-3 col-md-9">
+                            <button id="btn-login" class="btn btn-success">SIGN UP</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    
+    </div>
+</div>
